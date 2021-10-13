@@ -42,20 +42,18 @@ sudo reboot
 ```
 2. Set the "WLAN country" option in `raspi-config`'s **Localisation Options**: `sudo raspi-config`. It is also recommended to expland the filesystem.
 3. Carefully insert the SIM card in the Hat's Sim slot.
-
-4. If you have a device without an onboard wireless chipset, the [**Edimax Wireless 802.11b/g/n nano USB adapter**](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/global/wireless_adapters_n150/ew-7811un) is an excellent option – it's small, cheap and has good driver support.
-
-5. The Sixfab Hat does not need any external drivers. Simply mount on the GPIO bank and connect the USB cable. This will present the Hat as a USB device.
-6. Yout will need screen for the next step.
+4. Yout will need screen for the next step.
 
 ```
 sudo apt install screen -y
-'''
+```
 
-7. The device should be available in ttyUSB2. Use screen for the next step:
+5. The device should be available in ttyUSB2. Use screen for the next step:
+
 ```
 sudo screen /dev/ttyUSB2 115200
 ```
+
 Type 'at', the board should respond with 'OK'. In case of 'ERROR', check that the hat is sitting correctly on the raspberry Pi, the USB cable is attached and the SIM card correctly inserted. The SixFab hat should have a solid red light and a blinkcing Blue light.
 
 ```
@@ -68,7 +66,7 @@ if you type 'ifconfig' or 'iwconfig', you shoudl see now that usb0 is a new netw
 
 With the prerequisites done, you can proceed with either the Quick installer or Manual installation steps below.
 
-9.Once the installation is done, we need to allow iptable rules to direct traffic to/from the internet through our usb device.
+6.Once the installation is done, we need to allow iptable rules to direct traffic to/from the internet through our usb device.
 
 ```
 sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
