@@ -37,7 +37,7 @@ Start with a clean install of the [latest release of Raspberry Pi OS (32-bit) Li
 1. Update Raspbian, including the kernel and firmware, followed by a reboot:
 ```
 sudo apt-get update
-sudo apt-get full-upgrade
+sudo apt-get full-upgrade -y
 sudo reboot
 ```
 2. Set the "WLAN country" option in `raspi-config`'s **Localisation Options**: `sudo raspi-config`
