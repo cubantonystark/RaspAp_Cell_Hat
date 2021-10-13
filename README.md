@@ -41,7 +41,7 @@ sudo apt-get full-upgrade -y
 sudo reboot
 ```
 2. Set the "WLAN country" option in `raspi-config`'s **Localisation Options**: `sudo raspi-config`
-3. insert the SIM card in the Hat's Sim slot.
+3. Insert the SIM card in the Hat's Sim slot.
 
 4. If you have a device without an onboard wireless chipset, the [**Edimax Wireless 802.11b/g/n nano USB adapter**](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/global/wireless_adapters_n150/ew-7811un) is an excellent option – it's small, cheap and has good driver support.
 
