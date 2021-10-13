@@ -41,15 +41,23 @@ sudo apt-get full-upgrade
 sudo reboot
 ```
 2. Set the "WLAN country" option in `raspi-config`'s **Localisation Options**: `sudo raspi-config`
+3. insert the SIM card in the Hat's Sim slot.
 
-3. If you have a device without an onboard wireless chipset, the [**Edimax Wireless 802.11b/g/n nano USB adapter**](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/global/wireless_adapters_n150/ew-7811un) is an excellent option – it's small, cheap and has good driver support.
+4. If you have a device without an onboard wireless chipset, the [**Edimax Wireless 802.11b/g/n nano USB adapter**](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/global/wireless_adapters_n150/ew-7811un) is an excellent option – it's small, cheap and has good driver support.
 
-4. The Sixfab Hat does not need any external drivers. Simply mount on the GPIO bank and connect the USB cable. This will present the Hat as a USB device.
-5. The device should be available in ttyUSB2. Use screen for the next step:
+5. The Sixfab Hat does not need any external drivers. Simply mount on the GPIO bank and connect the USB cable. This will present the Hat as a USB device.
+6. The device should be available in ttyUSB2. Use screen for the next step:
 ```
 screen /dev/ttyUSB2 115200
 ```
-Type at, the board should respond with 'OK'. In case of ERROR, check that the hat is sitting correctly on the raspberry Pi, USB cable is attached and the SIM card correctly inserted.
+Type 'at', the board should respond with 'OK'. In case of 'ERROR', check that the hat is sitting correctly on the raspberry Pi, the USB cable is attached and the SIM card correctly inserted. The SixFab hat should have a solid red light and a blinkcing Blue light.
+
+```
+AT+QCFG="usbnet",1
+AT+CGDCONT=1, “IP”, “hologram”
+AT+CFUN=1,1
+```
+All commands should respond with 'OK'. The last command restarts the board. Screen will be terminated and you should be back in the command prompt.
 
 With the prerequisites done, you can proceed with either the Quick installer or Manual installation steps below.
 
