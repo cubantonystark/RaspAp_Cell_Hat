@@ -42,7 +42,7 @@ sudo reboot
 ```
 2. Set the "WLAN country" option in `raspi-config`'s **Localisation Options**: `sudo raspi-config`. It is also recommended to expland the filesystem.
 3. Carefully insert the SIM card in the Hat's Sim slot.
-4. Yout will need screen for the next step.
+4. The SixFab cellular Hat does not need any external drivers. Your device should be listed in lsusb as 'Quectel Wireless Solutions Co., Ltd. EC25 LTE modem'. You will need screen for the next step.
 
 ```
 sudo apt install screen -y
