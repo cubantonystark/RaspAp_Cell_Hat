@@ -93,6 +93,8 @@ curl -sL https://install.raspap.com | bash
 ```
 The [installer](https://docs.raspap.com/quick/) will complete the steps in the manual installation (below) for you.
 
+It is recommended you change the default SSH password fro the 'pi' user before rebooting.
+
 After the reboot at the end of the installation the wireless network will be
 configured as an access point as follows:
 * IP address: 10.3.141.1
