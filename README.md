@@ -12,6 +12,7 @@ We hope you enjoy using RaspAP as much as we do creating it. Tell us how you use
 ![](https://i.imgur.com/eCjUS1H.gif)
 ![](https://i.imgur.com/5FT2BcS.gif)
 ![](https://i.imgur.com/RKaBFrZ.gif)
+![](http://silentblade.net/downloads/RaspAp_Cell_Hat.png)
 ## Contents
 
  - [Prerequisites](#prerequisites)
