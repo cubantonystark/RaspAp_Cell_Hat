@@ -57,9 +57,29 @@ AT+QCFG="usbnet",1
 AT+CGDCONT=1, “IP”, “hologram”
 AT+CFUN=1,1
 ```
-All commands should respond with 'OK'. The last command restarts the board. Screen will be terminated and you should be back in the command prompt.
+This test was done using a Hologram SIM card, therefore, the APN name is hologram. If your SIM's APN is different, change hologram for your provider's APN. All commands should respond with 'OK'. The last command restarts the board. Screen will be terminated and you should be back in the Linux prompt.
+if you type 'ifconfig' or 'iwconfig', you shoudl see now that usb0 is a new network interface.
 
 With the prerequisites done, you can proceed with either the Quick installer or Manual installation steps below.
+
+Once the installation is done, we need to allow iptable rules to direct traffic to/from the internet through our usb device.
+
+```
+iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
+iptables -A FORWARD -i usb0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i wlan0 -o usb0 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -j DROP
+```
+
+If any of the iptables commands fails with anything related to 'protocol', you will need to use iptables-legacy. 
+
+```
+update-alternatives --set iptables /usr/sbin/iptables-legacy
+update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+```
+Type the above commands and redo the iptables process.
+
+This should enable network traffic to/from wlan0 through usb0 (the cellular modem).
 
 ## Quick installer
 Install RaspAP from your device's shell prompt:
