@@ -71,10 +71,12 @@ With the prerequisites done, you can proceed with either the Quick installer or 
 
 ```
 sudo -i
-sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
-sudo iptables -A FORWARD -i usb0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-sudo iptables -A FORWARD -i wlan0 -o usb0 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
-sudo iptables -A FORWARD -j DROP
+iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
+iptables -A FORWARD -i usb0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i wlan0 -o usb0 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -j DROP
+iptables-save > /etc/iptables.ipv4.nat
+logout
 ```
 
 If any of the iptables commands fails with anything related to 'protocol', you will need to use iptables-legacy. 
