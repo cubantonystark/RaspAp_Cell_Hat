@@ -48,7 +48,7 @@ sudo reboot
 5. The Sixfab Hat does not need any external drivers. Simply mount on the GPIO bank and connect the USB cable. This will present the Hat as a USB device.
 6. The device should be available in ttyUSB2. Use screen for the next step:
 ```
-screen /dev/ttyUSB2 115200
+sudo screen /dev/ttyUSB2 115200
 ```
 Type 'at', the board should respond with 'OK'. In case of 'ERROR', check that the hat is sitting correctly on the raspberry Pi, the USB cable is attached and the SIM card correctly inserted. The SixFab hat should have a solid red light and a blinkcing Blue light.
 
@@ -65,17 +65,17 @@ With the prerequisites done, you can proceed with either the Quick installer or 
 Once the installation is done, we need to allow iptable rules to direct traffic to/from the internet through our usb device.
 
 ```
-iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
-iptables -A FORWARD -i usb0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-iptables -A FORWARD -i wlan0 -o usb0 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
-iptables -A FORWARD -j DROP
+sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
+sudo iptables -A FORWARD -i usb0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i wlan0 -o usb0 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -j DROP
 ```
 
 If any of the iptables commands fails with anything related to 'protocol', you will need to use iptables-legacy. 
 
 ```
-update-alternatives --set iptables /usr/sbin/iptables-legacy
-update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 ```
 Type the above commands and redo the iptables process.
 
