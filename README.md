@@ -32,7 +32,7 @@ We hope you enjoy using RaspAP as much as we do creating it. Tell us how you use
  - [License](#license)
 
 ## Prerequisites
-Start with a clean install of the [latest release of Raspberry Pi OS (32-bit) Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit). The Raspberry Pi OS desktop and 64-bit beta distros are unsupported.
+Start with a clean install of the [latest release of Raspberry Pi OS (32-bit) Lite](https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit). The Raspberry Pi OS desktop and 64-bit beta distros are unsupported. Make sure the Sixfab Hat is sitting properly on the GPIO bank of the Pi and the USB cable is connected between the Raspberry Pi and the Hat.
 
 1. Update Raspbian, including the kernel and firmware, followed by a reboot:
 ```
@@ -41,7 +41,7 @@ sudo apt-get full-upgrade -y
 sudo reboot
 ```
 2. Set the "WLAN country" option in `raspi-config`'s **Localisation Options**: `sudo raspi-config`
-3. Insert the SIM card in the Hat's Sim slot.
+3. Carefully insert the SIM card in the Hat's Sim slot.
 
 4. If you have a device without an onboard wireless chipset, the [**Edimax Wireless 802.11b/g/n nano USB adapter**](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/global/wireless_adapters_n150/ew-7811un) is an excellent option – it's small, cheap and has good driver support.
 
