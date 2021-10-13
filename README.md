@@ -54,7 +54,7 @@ sudo apt install screen -y
 sudo screen /dev/ttyUSB2 115200
 ```
 
-Type 'at', the board should respond with 'OK'. In case of 'ERROR', check that the hat is sitting correctly on the raspberry Pi, the USB cable is attached and the SIM card correctly inserted. The SixFab hat should have a solid red light and a blinkcing Blue light.
+Type 'at', the board should respond with 'OK'. In case of 'ERROR', check that the hat is sitting correctly on the raspberry Pi, the USB cable is attached and the SIM card correctly inserted. The SixFab Hat should have a solid red light and a blinking Blue light.
 
 ```
 AT+QCFG="usbnet",1
@@ -66,7 +66,7 @@ if you type 'ifconfig' or 'iwconfig', you shoudl see now that usb0 is a new netw
 
 With the prerequisites done, you can proceed with either the Quick installer or Manual installation steps below.
 
-6.Once the installation is done, we need to allow iptable rules to direct traffic to/from the internet through our usb device.
+6.Once the installation is done, we need to allow iptable rules to direct traffic to/from the internet through our cellular hat.
 
 ```
 sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
