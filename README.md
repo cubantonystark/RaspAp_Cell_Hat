@@ -66,7 +66,7 @@ if you type 'ifconfig' or 'iwconfig', you shoudl see now that usb0 is a new netw
 
 With the prerequisites done, you can proceed with either the Quick installer or Manual installation steps below.
 
-6.Once the installation is done, we need to allow iptable rules to direct traffic to/from the internet through our cellular hat.
+6. Once the installation is done, we need to allow iptable rules to direct traffic to/from the internet through our cellular hat.
 
 ```
 sudo -i
