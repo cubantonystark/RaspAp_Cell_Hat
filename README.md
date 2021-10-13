@@ -69,6 +69,7 @@ With the prerequisites done, you can proceed with either the Quick installer or 
 6.Once the installation is done, we need to allow iptable rules to direct traffic to/from the internet through our cellular hat.
 
 ```
+sudo -i
 sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
 sudo iptables -A FORWARD -i usb0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i wlan0 -o usb0 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
